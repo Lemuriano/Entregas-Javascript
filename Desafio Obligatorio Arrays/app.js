@@ -29,6 +29,8 @@ if (!(opcion == 1 || opcion == 2)){
         let consultaFecha = prompt("Ingrese el nombre completo con la que registro la fecha")
         if (fechasRegistradas.find(element => element.includes(consultaFecha)) != undefined){
             alert(fechasRegistradas.find(element => element.includes(consultaFecha)))
+        }else{
+            alert("Fecha no encontrada con ese nombre, recargue para volver a iniciar")
         }
      }
 }
