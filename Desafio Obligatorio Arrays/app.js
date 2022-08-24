@@ -35,11 +35,20 @@ if (!(opcion == 1 || opcion == 2)){
      }
 }
 
+
 function confirmacionFecha(fecha){
     alert("Servicio confirmado por favor ingrese su nombre")
     let nombre = prompt("Nombre Completo")
-    alert("Datos confirmados \nNombre: " + nombre.toUpperCase() + "\nValor total del evento: $" + valorFinal)
+    const comprobanteFecha = document.getElementById("comprobante")
+    comprobanteFecha.innerHTML = `<h1>Comprobante de solicitud </h1>
+                                    <p>Nombre: ${nombre}</p>
+                                    <p>Fecha: ${fecha}</p>
+                                    <p>Valor: $${valorFinal}</p>`
+    document.body.appendChild(comprobanteFecha)
     fechasRegistradas.push(nombre +" "+ fecha)
     console.log(fechasRegistradas)
 }
+
+
+
 
