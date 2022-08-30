@@ -10,10 +10,10 @@ let opcion = Number(prompt(`Bienvenido a nuestro sistema de turnos. Seleccione l
 
 switch(opcion){
     case 1:
+        //se chequea si ya se creo una peticion desde el local storage y luego se obtiene el usuario para modificar la carga de fechas
         const clienteYaRegistrado = JSON.stringify(localStorage.getItem('Usuario Registrado'));
         if (clienteYaRegistrado != 'null'){
             if (confirm(`Detectamos un registro desde esta computadora a nombre de ${clienteYaRegistrado}. Desea modificar la fecha sino se continuara con la carga de una nueva`)){
-                //Se carga el html con el formulario para el usuario
                 const formulario = document.getElementById('main')
                 formulario.innerHTML = `<h1>Modificacion de fecha</h1>
                                         <p>Le recordamos que a la fecha el valor de una fiesta es de $${valorFiesta}, en caso de desear servicio de animacion se contará con un adicional de $${valorAnimacion}</p>
@@ -34,10 +34,8 @@ switch(opcion){
                                         </form>
                                         <br>
                                         <div id="comprobante"></div>`
-                //lo anexamos al body del html
                 document.body.appendChild(formulario)
                 let boton = document.getElementById("submit")
-                //al activarse el evento se procede con la funcion capturaForm que guarda la informacion del formulario y la agrega mediante el constructor al array de usuarios
                 boton.addEventListener("click", capturaForm)
             }else{
                 cargaForm()
@@ -123,8 +121,8 @@ function panelAdmin() {
     }
 }
 
+//funcion para mostrar el formulario
 function cargaForm(){
-    //Se carga el html con el formulario para el usuario
     const formulario = document.getElementById('main')
     formulario.innerHTML = `<h1>Complete el formulario y nos comunicaremos a la brevedad</h1>
                             <p>A la fecha el valor de una fiesta es de $${valorFiesta}, en caso de desear servicio de animacion se contará con un adicional de $${valorAnimacion}</p>
@@ -145,10 +143,8 @@ function cargaForm(){
                             </form>
                             <br>
                             <div id="comprobante"></div>`
-    //lo anexamos al body del html
     document.body.appendChild(formulario)
     //se capta el boton enviar con su respectivo evento
     let boton = document.getElementById("submit")
-    //al activarse el evento se procede con la funcion capturaForm que guarda la informacion del formulario y la agrega mediante el constructor al array de usuarios
     boton.addEventListener("click", capturaForm)
 }
