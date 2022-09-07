@@ -1,7 +1,7 @@
 //Declaracion de varibales globales
 let valorFiesta = 25000
 let valorAnimacion = 2500
-const fechasRegistradas = [{nombre: 'Franco Gomez', fecha: '2022-09-21', valor: 25000}, {nombre: 'Ana Cornejo', fecha: "2022-09-21", valor: 27500}]
+const fechasRegistradas = [{nombre: 'Franco Gomez', fecha: '2022-09-21', valor: valorFiesta}, {nombre: 'Ana Cornejo', fecha: "2022-09-21", valor: valorFiesta+valorAnimacion}]
 
 
 
@@ -53,13 +53,7 @@ switch(opcion){
             //ingreso de usuario y contraña
             let user = prompt("Ingrese nombre de usario administrador");
             let pass = prompt("Ingrese contraseña de administrador");
-            if ((user === "admin") && (pass === "admin")){
-                localStorage.setItem('usuarioadm', 'admin')
-                panelAdmin();
-            }else{
-                alert("Constraseña incorrecta")
-                error()
-            }
+            (user === "admin") && (pass === "admin") ? panelAdmin() : error()
         }        
         break
     default:
@@ -110,6 +104,7 @@ function error(){
 
 //funciona para mostrar la pagina de administracion
 function panelAdmin() {
+    localStorage.setItem('usuarioadm', 'admin')
     const registro = document.getElementById('main')
     registro.innerHTML = `<h1>Fechas Registradas</h1>
                           <ul id="fechas"></ul>`
