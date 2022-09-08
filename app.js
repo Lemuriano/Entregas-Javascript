@@ -3,7 +3,11 @@ let valorFiesta = 25000
 let valorAnimacion = 2500
 const fechasRegistradas = [{nombre: 'Franco Gomez', fecha: '2022-09-21', valor: valorFiesta}, {nombre: 'Ana Cornejo', fecha: "2022-09-21", valor: valorFiesta+valorAnimacion}]
 
-
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+  })
 
 
 let opcion = Number(prompt(`Bienvenido a nuestro sistema de turnos. Seleccione la opcion deseada\n1. Seleccion de Turnos \n2. Panel de visualizacion de fechas.`))
@@ -114,6 +118,10 @@ function error(){
 
 //funciona para mostrar la pagina de administracion
 function panelAdmin() {
+    Toast.fire({
+        icon: 'success',
+        title: 'Acceso correcto'
+    })
     localStorage.setItem('usuarioadm', 'admin')
     const registro = document.getElementById('main')
     registro.innerHTML = `<h1>Fechas Registradas</h1>
