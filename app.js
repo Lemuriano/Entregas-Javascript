@@ -5,6 +5,7 @@ const fechasRegistradas = [{nombre: 'Franco Gomez', fecha: '2022-09-21', valor: 
 
 
 
+
 let opcion = Number(prompt(`Bienvenido a nuestro sistema de turnos. Seleccione la opcion deseada\n1. Seleccion de Turnos \n2. Panel de visualizacion de fechas.`))
 
 
@@ -57,7 +58,6 @@ switch(opcion){
         }        
         break
     default:
-        alert("Opcion no valida - Recargue para volver a elegir opciones")
         error()
         break
 }
@@ -82,6 +82,11 @@ function capturaForm(){
         localStorage.setItem('Usuario Registrado', nombre)
         console.log(fechasRegistradas)
     }
+    Swal.fire(
+        `Registro finalizado`,
+        `${nombre} Gracias por elegirnos!`,
+        'success'
+      )
 }
 
 //objeto contructor 
@@ -96,10 +101,15 @@ class Clientes {
 
 //funcion eror
 function error(){
-    const error = document.getElementById('main')
-    error.innerHTML = `<h1>ERROR VUELVA A INTENTARLO</h1>
-                       <img src="b7e.jpg" alt="aiuda">`
-    document.body.appendChild(error)
+    Swal.fire({
+        icon: 'error', 
+        title: 'ERROR',
+        imageUrl: '/b7e.jpg',
+        imageWidth: 400,
+        imageHeight: 300,
+        imageAlt: 'Custom image',
+        text: 'Recargue para volver a iniciar'
+      })
 }
 
 //funciona para mostrar la pagina de administracion
