@@ -1,7 +1,7 @@
 //Declaracion de varibales globales
 let valorFiesta = 25000
 let valorAnimacion = 2500
-const fechasRegistradas = [{nombre: 'Franco Gomez', fecha: '2022-09-21', valor: valorFiesta}, {nombre: 'Ana Cornejo', fecha: "2022-09-21", valor: valorFiesta+valorAnimacion}]
+const fechasRegistradas = [{nombre: 'Franco Gomez', fecha: '2022-09-23', valor: valorFiesta}, {nombre: 'Ana Cornejo', fecha: "2022-10-23", valor: valorFiesta+valorAnimacion}]
 
 const Toast = Swal.mixin({
     toast: true,
@@ -125,16 +125,28 @@ function panelAdmin() {
     localStorage.setItem('usuarioadm', 'admin')
     const registro = document.getElementById('main')
     registro.innerHTML = `<h1>Fechas Registradas</h1>
-                          <ul id="fechas"></ul>`
+                          <ul id="fechasReg"></ul>
+                          <h1>Fechas Concretadas<h1>
+                          <ul id="fechasCon"><ul>`
+    const regFechasNuevas = document.getElementById('fechasReg')
+    const regFechasConc = document.getElementById('fechasCon')
     for (let i = 0; i < fechasRegistradas.length; i++) {
-        console.log(fechasRegistradas[i]);
-        const listaDeFechas = document.createElement("li")
-        listaDeFechas.innerHTML = `Nombre: ${fechasRegistradas[i].nombre} Fecha: ${fechasRegistradas[i].fecha} Valor: ${fechasRegistradas[i].valor}`
-        registro.appendChild(listaDeFechas)
+        const listaDeFechasNew = document.createElement("li")
+        listaDeFechasNew.innerHTML = `Nombre: ${fechasRegistradas[i].nombre} Fecha: ${fechasRegistradas[i].fecha} Valor: ${fechasRegistradas[i].valor}`
+        regFechasNuevas.appendChild(listaDeFechasNew)
     }
-}
 
-//funcion para mostrar el formulario
+    fetch('./fechas-viejas.json')
+        .then((res) => res.json())
+        .then((data)=> {
+            data.forEach(element => {
+                const listaDeFechasOld = document.createElement("li")
+                listaDeFechasOld.innerHTML = `Nombre: ${element.Nombre} Fecha: ${element.Fecha} Valor: ${element.Valor}`
+                regFechasConc.appendChild(listaDeFechasOld)
+            });
+        })
+    
+}
 function cargaForm(){
     const formulario = document.getElementById('main')
     formulario.innerHTML = `<h1>Complete el formulario y nos comunicaremos a la brevedad</h1>

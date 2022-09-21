@@ -1,3 +1,19 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+header{
+    background-color: black;
+    height: 200px;
+    display: flex;
+}
+
+header img{
+    max-height: 200px;
+}
+
 body {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
   }
