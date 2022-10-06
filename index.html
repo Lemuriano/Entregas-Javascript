@@ -4,12 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
     <title>Document</title>
 </head>
 <body>
-    <main id="main">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html" id="logoHome">
+                    <img src="./logo-no-background.png" alt="..." height="60">
+                    <span>Milos Eventos</span>
+                </a>
+                <button class="btn btn-dark border-light" id="adminPanel">Administrador</button>
+                <button class="btn btn-danger" id="btnCancelar">Cancelar</button>
+            </div>
+        </nav>
+    </header>
+    <main id="main" class="d-inline-flex flex-column align-items-center p-5">
+        <!-- <div id="content">
+            <input placeholder="Date and Time" type="text" data-open="picker2" class="form-control date-time picker-opener">
+        </div> -->
     </main>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="app.js"></script>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top bg-dark">
+        <span class="p-3 mb-3 mb-md-0 text-muted">&copy; 2022 Milos Eventos</span>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex p-3">
+            <li class="ms-3"><a class="text-muted" href="https://lemuriano.github.io/Salon-de-Fiestas-Milos/"><img src="./globe-24.ico" height="24px" width="24px" alt="icono web"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/miloseventos/"><img src="./instagram-24.ico" alt="icono web"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/miloseventoslp"><img src="./facebook-4-24.ico" alt="icono web"></a></li>
+        </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./app.js"></script>
+    <!-- <script src="./apptest.js"></script> -->
 </body>
 </html>
